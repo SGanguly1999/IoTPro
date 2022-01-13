@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Control Room</title>
+</head>
+<script>
+    function start_acc() {
+        console.log("Starting Accelerometer");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/start_acc',true);
+ourRequest.send()
+    }
+    function stop_acc() {
+        console.log("Stopping Accelerometer");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/stop_acc',true);
+ourRequest.send()
+    }
+
+    function start_ali() {
+        console.log("Starting Alimeter");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/start_ali',true);
+ourRequest.send()
+    }
+    function stop_ali() {
+        console.log("Stopping Alimeter");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/stop_ali',true);
+ourRequest.send()
+    }
+
+    function start_wei() {
+        console.log("Starting Weight sensor");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/start_wei',true);
+ourRequest.send()
+    }
+    function stop_wei() {
+        console.log("Stopping weight sensor");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/stop_wei',true);
+ourRequest.send()
+    }
+
+    function start_pulse() {
+        console.log("Starting pulse sensor");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/start_pulse',true);
+ourRequest.send()
+    }
+    function stop_pulse() {
+        console.log("Stopping pulse sensor");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/stop_pulse',true);
+ourRequest.send()
+    }
+
+     function start_device() {
+        console.log("Starting device");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/start_device',true);
+ourRequest.send()
+    }
+    function stop_device() {
+        console.log("Stopping device");
+       var ourRequest=new XMLHttpRequest();
+ourRequest.open('GET','/stop_device',true);
+ourRequest.send()
+    }
+</script>
+<body>
+<h1>Sensor Control Room</h1>
+<h2> Accelerometer </h2>
+<button onclick="start_acc()">Start</button>
+<button onclick="stop_acc()">Stop</button>
+
+<h2>Alimeter</h2>
+<button onclick="start_ali()">Start</button>
+<button onclick="stop_ali()">Stop</button>
+
+<h2>Weight Sensor</h2>
+<button onclick="start_wei()">Start</button>
+<button onclick="stop_wei()">Stop</button>
+
+<h2>Pulse sensor</h2>
+<button onclick="start_pulse()">Start</button>
+<button onclick="stop_pulse()">Stop</button>
+
+<h2>Device</h2>
+<button onclick="start_device()">Start</button>
+<button onclick="stop_device()">Stop</button>
+
+</body>
+</html>
