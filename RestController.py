@@ -9,7 +9,7 @@ ali = device.alti
 wei = device.weight
 pulse = device.pulse
 number = "7"
-choice = 1
+choice = 2
 if choice == 1:
     import PublishData
 
