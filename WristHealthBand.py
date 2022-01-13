@@ -9,11 +9,11 @@ import threading
 class WristHealthBand:
     def __init__(self, sampleFreq=1):
         self.sampleFreq = sampleFreq
-        self.acc = Accelerometer(sampleFreq=sampleFreq);
-        self.pulse = PulseSensor(sampleFreq=sampleFreq);
-        self.alti = Alimeter(sampleFreq=sampleFreq);
-        self.weight = WeightSensor(sampleFreq=sampleFreq);
-        self.createThread = None;
+        self.acc = Accelerometer(sampleFreq=sampleFreq)
+        self.pulse = PulseSensor(sampleFreq=sampleFreq)
+        self.alti = Alimeter(sampleFreq=sampleFreq)
+        self.weight = WeightSensor(sampleFreq=sampleFreq)
+        self.createThread = None
         self.out = -1
         self.name = "Pz Wrist Health Band"
         self.grav_acc = 9.8

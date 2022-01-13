@@ -1,23 +1,35 @@
 import paho.mqtt.client as paho
 import time as timing
 from paho import mqtt
+import os
+from application_logging.logger import App_Logger
 
 # setting callbacks for different events to see if it works, print the message etc.
 def on_connect(client, userdata, flags, rc, properties=None):
-    print("CONNACK received with code %s." % rc)
+    log_file = open('RuntimeLogs/on_connect_log.txt', 'a+')
+    logger.log(log_file, "CONNACK received with code %s." % rc)
+    log_file.close()
 
 # with this callback you can see if your publish was successful
 def on_publish(client, userdata, mid, properties=None):
-    print("mid: " + str(mid))
+    log_file = open('RuntimeLogs/on_publish_log.txt', 'a+')
+    logger.log(log_file, "mid: %s." %str(mid))
+    log_file.close()
 
 # print which topic was subscribed to
 def on_subscribe(client, userdata, mid, granted_qos, properties=None):
-    print("Subscribed: " + str(mid) + " " + str(granted_qos))
+    log_file = open('RuntimeLogs/on_subscribe_log.txt', 'a+')
+    logger.log(log_file, "Subscribed: {} {}.".format(str(mid), str(granted_qos)))
+    log_file.close()
 
 # print message, useful for checking if it was successful
 def on_message(client, userdata, msg):
-    print(msg.topic + " " + str(msg.qos) + " " + str(msg.payload))
+    log_file = open('RuntimeLogs/on_message_log.txt', 'a+')
+    logger.log(log_file, "{} {} {}.".format(msg.topic, str(msg.qos), str(msg.payload)))
+    log_file.close()
 
+# Create logger to log data
+logger = App_Logger()
 
 
 client = paho.Client(client_id="", userdata=None, protocol=paho.MQTTv5)
@@ -38,13 +50,13 @@ client.on_message = on_message
 client.on_publish = on_publish
 
 def publishAccelerometerData(acc):
- k=1
- while k!=None:
-  k=acc.output()
-  if(k!=None):
-   client.publish("mqtt/Accelerometer", payload=k, qos=1)
-   client.loop()
-  timing.sleep(1 // acc.sampleFreq)
+    k=1
+    while k!=None:
+        k=acc.output()
+        if(k!=None):
+            client.publish("mqtt/Accelerometer", payload=k, qos=1)
+            client.loop()
+        timing.sleep(1 // acc.sampleFreq)
 
 def publishAlimeterData(ali):
     k=1
