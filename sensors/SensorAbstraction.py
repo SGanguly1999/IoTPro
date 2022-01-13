@@ -73,7 +73,6 @@ class SensorAbstraction:
          return self.out                                    # out is returned
         else:
          return None                                        #  nothing is returned
-
-    def setName(self, name = "Sensor"):                     # Intial sensor name is 'Sensor'
-        self.name = name                                    # Assign name to the sensor
-        self.file_object = 'SensorLogs/'+self.name+'.txt'   # logger_file for the sensor is created
+    def setName(self, name = "Sensor"):
+        self.name = name
+        self.file_object = 'sensors/SensorLogs/'+self.name+'.txt'
