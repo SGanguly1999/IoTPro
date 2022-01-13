@@ -66,4 +66,4 @@ class SensorAbstraction:
 
     def setName(self, name = "Sensor"):
         self.name = name
-        self.file_object = 'Sensor/'+self.name+'.txt'
+        self.file_object = 'SensorLogs/'+self.name+'.txt'

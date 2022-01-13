@@ -8,6 +8,6 @@ class App_Logger:
     # The  method is used to log the message
     def log(self, file_object, log_message):
         self.now = datetime.now()           # Get system time
-        self.date = datetime.date()         # Get system date
-        self.current_time = self.now.strftime("%H:%M:%s")   # Create current time and date as string
+        self.date = self.now.date()         # Get system date
+        self.current_time = self.now.strftime("%H:%M:%S")   # Create current time and date as string
         file_object.write(str(self.date)+"/"+str(self.current_time)+"\t\t"+log_message+"\n")    # Log message with current time and date
