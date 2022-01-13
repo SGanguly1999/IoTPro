@@ -21,7 +21,7 @@
         * set_name: sensor_name can be  set using this function
 
 ### WeightSensor
-    ![Weight Sensor](sensors/Images/weight_sensor.jpg)
+![Weight Sensor](sensors/Images/weight_sensor.jpg)
     Weight Sensor is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
