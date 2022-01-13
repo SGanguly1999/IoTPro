@@ -16,6 +16,7 @@ if choice == 1:
 
 @app.route('/')
 def index():
+<<<<<<< Updated upstream
     return render_template('index.html', number=number)
 
 
@@ -24,6 +25,22 @@ def start_acc():
     acc.start()
     if (choice == 1):
         PublishData.publishAccelerometerData(acc)
+=======
+    log_file = open('RuntimeLogs/runtime.txt', 'a+')
+    logger.log(log_file, "Application is Started!")
+    log_file.close()
+    return render_template('index.html', number=number)     # Home Page is rendered
+
+
+@app.route('/start_acc')                                    # route to start accelorometer
+def start_acc():                                            
+    acc.start()                                             # accelorometer is started
+    log_file = open('RuntimeLogs/runtime.txt', 'a+')
+    logger.log(log_file, "Accelerometer is asked to start!") 
+    log_file.close()                                           
+    if (choice == 1):                                       
+        PublishData.publishAccelerometerData(acc)           # mqtt is used
+>>>>>>> Stashed changes
     else:
         coapPublishAccelerometer(acc)
 
