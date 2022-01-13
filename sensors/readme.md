@@ -21,7 +21,6 @@
         * set_name: sensor_name can be  set using this function
 
 ### WeightSensor
-    ![Weight Sensor](Images/weight_sensor?raw=true "Weight Sensor")
     Weight Sensor is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
@@ -30,7 +29,6 @@
         * x^2 + x is used as characteristics function
 
 ### Accelorometer
-    ![Accelorometer](Images/accelorometer?raw=true "Accelorometer")
     Accelorometer Sensor is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
@@ -39,7 +37,6 @@
         * x^2 + x is used as characteristics function
 
 ### PulseSensor
-    ![PulseSensor](Images/pulse_sensor?raw=true "PulseSensor")
     PulseSensor is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
@@ -48,7 +45,6 @@
         * x^2 + x is used as characteristics function
 
 ### PulseSensor
-    ![PulseSensor](Images/pulse_sensor?raw=true "PulseSensor")
     PulseSensor is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
@@ -57,7 +53,6 @@
         * x^2 + x is used as characteristics function
 
 ### Alimeter
-    ![Alimeter](Images/altitude_meter?raw=true "Alimeter")
     Alimeter is implemented in this file. It inherits the class SensorAbstraction.
     * Constructor:
         * SampleFreq is used to set the frequency which is passed in the constructor
