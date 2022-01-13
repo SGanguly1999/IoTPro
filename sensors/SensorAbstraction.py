@@ -2,6 +2,8 @@ import random
 from datetime import datetime,timedelta
 import time as timing
 import threading
+from application_logging.logger import App_Logger
+
 class SensorAbstraction:
     def __init__(self):
         self.createThread = None
@@ -11,15 +13,20 @@ class SensorAbstraction:
         self.setTolerance = None
         self.out = -1
         self.name = "Sensor"
+        self.logger = App_Logger()
 
     def start(self):
         if self.createThread is None:  # Starting the sensor by creating thread
             self.executionFlag  = True
             self.createThread = threading.Thread(target=self.continuous_generation)
             self.createThread.start()
-            print(self.name+" is started")
+            log_file = open(self.file_object, 'a+')
+            self.logger.log(log_file, "{} is started.".format(self.name))
+            log_file.close()
         else:
-            print(self.name+" is already executing")
+            log_file = open(self.file_object, 'a+')
+            self.logger.log(log_file, "{} is already executing.".format(self.name))
+            log_file.close()
 
     def stop(self):
         if self.createThread is not None:  # Stopping the sensor thread by turning executionFlag false
@@ -27,9 +34,13 @@ class SensorAbstraction:
             self.createThread.join()
             self.out = None
             self.createThread = None
-            print("Sensor stopped")
+            log_file = open(self.file_object, 'a+')
+            self.logger.log(log_file, "{} is stopped.".format(self.name))
+            log_file.close()
         else:
-            print("Sensor is not executing")
+            log_file = open(self.file_object, 'a+')
+            self.logger.log(log_file, "{} is not executing.".format(self.name))
+            log_file.close()
 
     def sample_freq(self, freq = 1):  # Sample frequency by default is set to 1
         self.sampleFreq = freq
@@ -40,7 +51,7 @@ class SensorAbstraction:
                 timing.sleep(1 // self.sampleFreq)
                 input=random.randint(0,100)
                 self.out=self.characteristicFunc(input)
-                self.time+=delta;
+                self.time+=delta
     def characteristicFunc(self,input):
         pass
 
@@ -55,4 +66,4 @@ class SensorAbstraction:
 
     def setName(self, name = "Sensor"):
         self.name = name
-
+        self.file_object = 'Sensor/'+self.name+'.txt'
